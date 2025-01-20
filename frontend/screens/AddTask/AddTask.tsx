@@ -1,4 +1,4 @@
-import {Picker} from '@react-native-picker/picker'; // Dropdown-valikko tehtävän nimelle
+//import {Picker} from '@react-native-picker/picker'; // Dropdown-valikko tehtävän nimelle
 import React, {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
@@ -65,7 +65,6 @@ export const AddTask = ({navigation}: any) => {
 
         <Button title="Lisää tehtävä" onPress={handleAddTask} />
       </View>
-      <Picker />
     </SafeAreaView>
   );
 };
