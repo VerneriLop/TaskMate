@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
-import {scaleFontSize, verticalScale} from '../../assets/styles/scaling';
+import {
+  horizontalScale,
+  scaleFontSize,
+  verticalScale,
+} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   label: {
@@ -11,8 +15,10 @@ const style = StyleSheet.create({
   },
   input: {
     paddingVertical: verticalScale(12),
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(167,167,167,0.5)',
+    paddingHorizontal: horizontalScale(4),
+    borderWidth: 1,
+    borderColor: 'rgba(167,167,167,0.5)',
+    borderRadius: horizontalScale(5),
   },
 });
 

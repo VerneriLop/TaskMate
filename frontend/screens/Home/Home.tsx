@@ -8,7 +8,7 @@ export const Home = ({navigation}: any): JSX.Element => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <Button
-        title="Lisää uusi tehtävä"
+        title="Lisää uusi tehtävä +"
         onPress={() => navigation.navigate(Routes.AddTask)} // Navigointi AddTask-näkymään
       />
     </SafeAreaView>

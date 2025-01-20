@@ -1,38 +1,36 @@
-import React, {useState} from 'react';
-
-import style from './style';
+import React from 'react';
 import {KeyboardTypeOptions, Text, TextInput, View} from 'react-native';
+import style from './style';
 
 type Props = {
   label: string;
   placeholder?: string;
-  onChangeText?: (val: string) => void;
+  value: string;
+  onChangeText: (val: string) => void;
   keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
+  style?: object;
 };
 
 const Input = ({
   label,
   placeholder,
-  onChangeText = () => {},
+  value,
+  onChangeText,
   keyboardType = 'default',
   secureTextEntry = false,
+  style: inputStyle,
 }: Props): JSX.Element => {
-  const [value, setValue] = useState<string>('');
-
   return (
-    <View>
+    <View style={inputStyle}>
       <Text style={style.label}>{label}</Text>
       <TextInput
-        placeholder={placeholder ? placeholder : undefined}
+        placeholder={placeholder}
         style={style.input}
         value={value}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        onChangeText={val => {
-          setValue(val);
-          onChangeText && onChangeText(val);
-        }}
+        onChangeText={onChangeText}
       />
     </View>
   );
