@@ -13,8 +13,9 @@ import Input from '../../components/Input/Input'; // Omat Input-komponentit
 import Button from '../../components/Button/Button'; // Omat Button-komponentit
 import style from './style';
 import globalStyle from '../../assets/styles/globalStyle';
+import {Routes} from '../../navigation/Routes';
 
-const LoginScreen = ({navigation}: any): JSX.Element => {
+export const LoginScreen = ({navigation}: any): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const LoginScreen = ({navigation}: any): JSX.Element => {
 
     // Dispatchataan käyttäjä kirjautuneeksi Reduxiin
     dispatch(loginUser({user, token}));
-    navigation.navigate('Home');
+    //navigation.navigate(Routes.Home); tämä piti poistaa koska valitti muuten navigointilogiikka on jo homesivulle MainNavigationissa
   };
 
   return (
@@ -61,12 +62,10 @@ const LoginScreen = ({navigation}: any): JSX.Element => {
 
         <Button title="Kirjaudu sisään" onPress={handleLogin} />
 
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity onPress={() => navigation.navigate(Routes.Register)}>
           <Text style={style.registerLink}>Ei tiliä? Luo käyttäjä</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
-
-export default LoginScreen;

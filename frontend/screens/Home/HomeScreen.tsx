@@ -4,7 +4,7 @@ import globalStyle from '../../assets/styles/globalStyle';
 import Button from '../../components/Button/Button';
 import {Routes} from '../../navigation/Routes';
 
-export const Home = ({navigation}: any): JSX.Element => {
+export const HomeScreen = ({navigation}: any): JSX.Element => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <Button

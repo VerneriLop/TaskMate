@@ -4,8 +4,9 @@ import Input from '../../components/Input/Input'; // Oletan että käytät omaa 
 import Button from '../../components/Button/Button'; // Oletan että käytät omaa Button-komponenttia
 import style from './style';
 import globalStyle from '../../assets/styles/globalStyle';
+import {Routes} from '../../navigation/Routes';
 
-const RegisterScreen = ({navigation}: any) => {
+export const RegisterScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,7 +38,7 @@ const RegisterScreen = ({navigation}: any) => {
       if (response.ok) {
         // Rekisteröinti onnistui, siirrytään kirjautumissivulle
         Alert.alert('Onnistui', 'Käyttäjä luotu');
-        navigation.navigate('Login');
+        navigation.navigate(Routes.Login);
       } else {
         // Virhe rekisteröinnissä
         Alert.alert('Virhe', data.error || 'Tuntematon virhe');
@@ -59,6 +60,7 @@ const RegisterScreen = ({navigation}: any) => {
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
+          style={style.input}
         />
         <Input
           label="Salasana"
@@ -66,6 +68,7 @@ const RegisterScreen = ({navigation}: any) => {
           value={password}
           onChangeText={setPassword}
           secureTextEntry
+          style={style.input}
         />
         <Input
           label="Vahvista salasana"
@@ -73,6 +76,7 @@ const RegisterScreen = ({navigation}: any) => {
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           secureTextEntry
+          style={style.input}
         />
 
         <Button title="Rekisteröidy" onPress={handleRegister} />
@@ -80,5 +84,3 @@ const RegisterScreen = ({navigation}: any) => {
     </SafeAreaView>
   );
 };
-
-export default RegisterScreen;
